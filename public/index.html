@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emisor de alertas 📣</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="form-container" id="form-container">
+        <header class="hero">
+            <h1 class="title" id="title">Emisor de alertas</h1>
+        </header>
+        <form class="sender" id="sender">
+
+            <section class="form-section" id="data">
+
+                <h4 class="basics" id="basics">Datos del comercio</h4>
+
+                <div class="info" id="info">
+                    <label for="name">Ubicación:</label>
+                    <input type="text" name="name" class="info-input" id="name" readonly
+                        placeholder="Nombre de fantasía">
+
+                    <label for="unit">Número:</label>
+                    <input type="text" name="unit" class="info-input" id="unit" readonly placeholder="Unidad comercial">
+                </div>
+
+            </section>
+
+            <br>
+
+            <section class="form-section" id="actions">
+
+                <h4 class="services" id="services">Solicitar servicio</h4>
+
+                <div class="buttons" id="buttons">
+                    <button type="submit" class="btn" id="emergency">
+                        Emergencias
+                    </button>
+
+                    <button type="submit" class="btn" id="security">
+                        Seguridad
+                    </button>
+
+                    <button type="submit" class="btn" id="fire">
+                        Bomberos
+                    </button>
+
+
+                </div>
+
+            </section>
+        </form>
+    </main>
+
+    <dialog class="modal" id="dialog">
+        <div class="modal-container">
+            <section class="modal-data" id="modal-data">
+                <h3 class="modal-title">Solicitud:</h3>
+                <span></span>
+            </section>
+            <section class="modal-response" id="modal-response">
+                <h3 class="modal-title">Atención:</h3>
+                <span>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </span>
+            </section>
+            <section class="modal-buttons" id="modal-buttons">
+                <button class="modal-extend" id="modal-extend">Ampliar</button>
+                <button class="modal-close" id="modal-close">Cerrar</button>
+            </section>
+
+        </div>
+    </dialog>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script-client.js"></script>
+
+</body>
+
+</html>

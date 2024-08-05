@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/displayer/displayer-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Montserrat', sans-serif;
+    scrollbar-width: thin;
+}
+
+header {
+    width: 100%;
+}
+
+nav {
+    width: auto;
+    height: 3em;
+    padding: 0 1em;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.nav-item {
+    margin: 0 .2em;
+    display: flex;
+    align-items: center;
+    color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    font-weight: 500;
+    letter-spacing: .1em;
+}
+
+nav>select {
+    background: black;
+    border: none;
+    text-align: center;
+    text-decoration: underline;
+}
+
+option {
+    background-color: black;
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: .1em .1em rgba(46, 50, 255, 0.2);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.event-manager {
+    padding: 0.2em;
+    height: 65vh;
+    align-self: center;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alerts-list>li {
+    margin-bottom: .5em;
+    padding: .9em;
+    border-radius: .3em;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.alerts-list>li>* {
+    pointer-events: none;
+}
+
+.data-container {
+    margin: .5em;
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+    align-items: flex-start;
+    text-align: start;
+}
+
+.data-container>h3 {
+    margin: 0;
+    font-size: large;
+}
+
+.data-container>p {
+    margin: 0;
+    font-size: small;
+}
+
+.service-container {
+    margin: .5em .5em 0 .5em;
+    overflow: hidden;
+}
+
+.service-container>p {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fecha,
+.reloj {
+    margin: .5em .5em 0 .5em;
+    font-size: 1.5em;
+    font-weight: 500;
+    letter-spacing: .12em;
+}
+
+.emergencias {
+    background: linear-gradient(25deg, rgba(0, 110, 0, 1) 0%, rgba(0, 32, 0, 0.8) 100%);
+    border: groove white 0.25em;
+}
+
+.seguridad {
+    background: linear-gradient(25deg, rgba(0, 0, 110, 1) 0%, rgba(0, 0, 32, 0.8) 100%);
+    border: groove white 0.25em;
+}
+
+.bomberos {
+    background: linear-gradient(25deg, rgba(110, 0, 0, 1) 0%, rgba(32, 0, 0, 0.8) 100%);
+    border: groove white 0.25em;
+}
+
+.blink {
+    animation-name: blink;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: initial;
+    }
+
+    40% {
+        opacity: 40%;
+        background-color: white;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+
+@media (width > 600px) {
+    .event-manager {
+        width: 85%;
+    }
+}

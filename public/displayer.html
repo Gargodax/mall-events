@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos | Alertas</title>
+    <link rel="stylesheet" href="styles-displayer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<header>
+    <nav>
+        <label for="locations" class="nav-item">Ubicación:</label>
+        <select class="nav-item" id="locations">
+            <option selected="true" disabled="disabled">seleccione lugar</option>
+            <option value="location-1">Ubicación 1</option>
+            <option value="location-2">Ubicación 2</option>
+            <option value="location-3">Soleil premium outlet</option>
+            <option value="location-4">Ubicación 4</option>
+            <option value="location-5">Ubicación 5</option>
+            <option value="location-6">Ubicación 6</option>
+            <option value="location-7">Ubicación 7</option>
+            <option value="location-8">Ubicación 8</option>
+            <option value="location-9">Ubicación 9</option>
+            <option value="location-10">Ubicación 10</option>
+            <option value="location-11">Ubicación 11</option>
+            <option value="location-12">Ubicación 12</option>
+            <option value="location-13">Ubicación 13</option>
+            <option value="location-14">Ubicación 14</option>
+            <option value="location-15">Ubicación 15</option>
+        </select>
+    </nav>
+    <h1>Eventos en tiempo real</h1>
+</header>
+
+<main class="main" id="main">
+    <H2>Listado de alertas</H2>
+
+    <div class="event-manager" id="event-manager">
+
+        <ul class="alerts-list" id="alerts-list"></ul>
+    </div>
+</main>
+
+<aside class="aside" id="aside" style="display: none">
+
+    <h4>Alertas reconocidas</h4>
+
+    <div class="recognized-events" id="recognized-events">
+
+        <ul class="recognized-list" id="recognized-list"></ul>
+    </div>
+</aside>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script-displayer.js"></script>
+</body>
+
+</html>
