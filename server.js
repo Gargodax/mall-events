@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
         setTimeout(() => {
             socket.to(data.id).emit('alerta-reconocida', data);
             io.emit('actualizar-alerta', data)
-        }, 200);
+        }, 500);
         
     });
 
