@@ -166,19 +166,32 @@ label {
     backdrop-filter: blur(14.2px);
     border: 1px solid rgba(200, 200, 200, 0.6);
     position: fixed;
-    inset: 0;
+    top: -5em;
     margin: auto;
-    padding: 2rem 3rem;
+    padding: 1rem 1.5rem;
     width: 30rem;
     max-width: calc(100% - 8rem);
-    height: calc(100%-10rem);
     animation: show-modal .3s .2s both;
 }
 
 .modal-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+}
+
+.modal-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-container {
+    width: 100%;
+}
+
+.chat-title {
+    margin: 0;
+    align-self: center;
 }
 
 .modal[open]::backdrop {
@@ -197,26 +210,20 @@ label {
     background-color: rgba(24, 24, 24, 0.75);
 }
 
+.modal-title {
+    margin: 0;
+}
+
 .modal-data ul {
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: .35em;
-    padding: 2em;
-    gap: .5em;
-}
-
-.modal-response ul {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: .35em;
-    padding: 1.5em;
-    gap: .5em;
+    padding: .5em;
+    gap: .25em;
 }
 
 .modal li {
-    font-weight: 500;
     font-size: large;
     list-style: none;
     margin: .2em;
@@ -225,42 +232,77 @@ label {
     font-weight: 600;
 }
 
+.waiting {
+    color: rgba(110, 0, 0, 1);
+}
+
+.received {
+    color: rgba(0, 110, 0, 1);
+}
+
 .modal-buttons {
     display: flex;
 }
 
 .modal-close {
-    width: 30em;
-    height: 2.5em;
-    margin: 1.2em;
-    border: none;
-    border-radius: .5em;
-    background-color: rgba(0, 128, 0, 0.8);
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: large;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    border: inset 1.5px;
+    border-radius: 20%;
+    background-color: transparent;
+    font-family: monospace;
+    font-size: 1.5em;
+    font-weight: 1000;
+    position: absolute;
+    right: 0;
+    margin-right: .5em;
+    top: 0;
+    margin-top: .5em;
+    cursor: pointer;
 }
 
-.modal-close:hover {
-    background: linear-gradient(25deg, rgba(0, 110, 0, 1) 0%, rgba(0, 32, 0, 0.8) 100%);
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 12em;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: .35em;
+    padding: 0;
+    margin-top: 0.2em;
+    overflow-y: auto;
 }
 
-.modal-extend {
-    width: 30em;
-    height: 2.5em;
-    margin: 1.2em;
-    border: none;
-    border-radius: .5em;
+.chat-form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.modal-text-msg {
+    width: 75%;
+    height: 3em;
+    border-radius: 5em;
+    border: solid 1.5px black;
+    align-self: center;
+    padding-left: 1.2em;
+    overflow-x: hidden;
+}
+
+.modal-send-msg {
+    width: 3.5em;
+    height: 2.475em;
+    border: solid 1px black;
+    border-radius: 5em;
     background-color: rgba(0, 0, 128, 0.8);
     color: #ffffff;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 900;
     font-size: large;
-}
-
-.modal-extend:hover {
-    background: linear-gradient(25deg, rgba(0, 0, 110, 1) 0%, rgba(0, 0, 32, 0.8) 100%);
+    align-self: center;
+    cursor: pointer;
 }
 
 
@@ -300,13 +342,28 @@ label {
 
 }
 
+/* Componentes del chat*/
+.client {
+    justify-content: flex-end;
+    background-color: palegreen;
+    margin: .25em;
+    padding: .2em .5em .2em 30%;
+}
+
+.manager {
+    justify-content: flex-start;
+    background-color: palegoldenrod;
+    margin: .25em;
+    padding: .2em 30% .2em .5em;
+}
+
 /* HTML: <div class="loader"></div> */
 .loader {
     align-self: baseline;
     margin-left: .5em;
     height: 1em;
     aspect-ratio: 2.5;
-    --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+    --_g: no-repeat radial-gradient(circle closest-side, rgba(110, 0, 0, 1) 90%, #0000);
     background: var(--_g), var(--_g), var(--_g), var(--_g);
     background-size: 20% 50%;
     animation: l43 1s infinite linear;

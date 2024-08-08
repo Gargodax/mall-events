@@ -57,22 +57,27 @@
     </main>
 
     <dialog class="modal" id="dialog">
+
+        <button class="modal-close" id="modal-close">❌</button>
+
         <div class="modal-container">
             <section class="modal-data" id="modal-data">
-                <h3 class="modal-title">Solicitud:</h3>
-                <span></span>
+                <h3 class="modal-title">ALERTA GENERADA</h3>
+                <span class="data-container"></span>
             </section>
-            <section class="modal-response" id="modal-response">
-                <h3 class="modal-title">Atención:</h3>
-                <span>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </span>
-            </section>
-            <section class="modal-buttons" id="modal-buttons">
-                <button class="modal-extend" id="modal-extend">Ampliar</button>
-                <button class="modal-close" id="modal-close">Cerrar</button>
+
+            <h5 class="chat-title">Detalles (opcional)</h5>
+
+            <section class="modal-extend" id="modal-extend">
+                <ul class="chat-messages" id="chat-messages">
+                    
+                </ul>
+
+                <form class="chat-form" id="chat-form">
+                    <input autofocus type="text" class="modal-text-msg" id="modal-text-msg" placeholder="Escribí tu mensaje...">
+                    <button type="submit" class="modal-send-msg" id="modal-send-msg">↑</button>
+                </form>
+
             </section>
 
         </div>

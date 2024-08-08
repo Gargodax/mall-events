@@ -17,10 +17,13 @@ const btnSecurity = document.getElementById('security');
 const btnFire = document.getElementById('fire');
 
 const dialog = document.getElementById('dialog');
-const modalClose = document.getElementById('modal-close');
-const modalExtend = document.getElementById('modal-extend');
 const modalContent = document.querySelector('#modal-data>span');
-const modalResponse = document.querySelector('#modal-response>span>ul>li');
+const modalClose = document.getElementById('modal-close');
+const chatViewer = document.getElementById('chat-messages');
+const textModalChat = document.getElementById('modal-text-msg');
+const btnModalChat = document.getElementById('modal-send-msg');
+
+
 
 // Los parámetros tomados del URL se insertan en los inputs
 
@@ -65,8 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             socket.emit('mensaje', alerta);
 
-            modalResponse.innerHTML = `Aguardando respuesta  <div class="loader"></div>`;
+            const modalResponse = document.createElement('li');
+            modalResponse.classList.add('waiting');
 
+
+            modalResponse.innerHTML = 'Aguardando respuesta  <div class="loader"></div>';
 
             dialog.showModal();
 
@@ -81,9 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
             infoName.textContent = "Ubicación: " + alerta.nombre;
             infoUnit.textContent = "Unidad: " + alerta.unidad;
             infoService.textContent = "Servicio: " + alerta.solicitud;
-            infoTime.textContent = "Horario: " + alerta.horario;
+            infoTime.textContent = "Solicitado: " + alerta.horario;
 
-            dataList.append(infoName, infoUnit, infoService, infoTime);
+            dataList.append(infoName, infoUnit, infoService, infoTime, modalResponse);
 
             if (modalContent.hasChildNodes()) {
                 modalContent.replaceChild(dataList, modalContent.firstChild);
@@ -94,15 +100,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Alerta reconocida
             socket.on('alerta-reconocida', (data) => {
-                modalResponse.textContent = "Alerta recibida " + data.hora;
+                // Notificación de alert recibida
+                modalResponse.classList.replace('waiting', 'received')
+                modalResponse.textContent = "Recibido (seguridad): " + data.hora;
+
+                //Mensaje automático al chat
+
+                let managerMessage = document.createElement('li');
+                managerMessage.classList.add('manager');
+                managerMessage.textContent = "(Seguridad): Recibimos la alerta y estamos en camino. ¿Querés informar algo más?";
+                chatViewer.appendChild(managerMessage);
+                chatViewer.scrollTop = chatViewer.scrollHeight;
+
+
             });
 
         });
 
     };
 
-    modalExtend.addEventListener('click', () => {
-        // Mini chat para ampliar solicitud
+    btnModalChat.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let clientMessage = document.createElement('li');
+        clientMessage.classList.add('client');
+        clientMessage.textContent = "(" + nombre.value + "): " + textModalChat.value;
+        chatViewer.appendChild(clientMessage);
+        chatViewer.scrollTop = chatViewer.scrollHeight;
+        textModalChat.value = '';
+
     });
 
 
